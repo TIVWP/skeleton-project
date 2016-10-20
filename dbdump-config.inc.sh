@@ -1,0 +1,28 @@
+#!/bin/bash
+
+declare -r SITE_NAME="SKELETON.com"
+
+#
+# For remote operations (ssh, copy dumps from-to server)
+#
+# Note: REMOTE_ADDR must be an IP, to work regardless the /etc/hosts settings
+#
+declare -r REMOTE_ADDR="x.x.x.x"
+declare -r REMOTE_USER="www-data"
+
+# Must be the same on all machines
+declare -r WWW_ROOT="/var/www/u"
+declare -r SITE_ROOT="${WWW_ROOT}/${SITE_NAME}"
+declare -r DOCUMENT_ROOT="${SITE_ROOT}/public"
+declare -r WP_CONTENT_DIR="${DOCUMENT_ROOT}/wp-content"
+declare -r DIR_DUMP="${SITE_ROOT}/dbdump-data/sql"
+
+# These are the MySQL connection settings, same as in the WordPress config file
+declare -r DB_NAME="SKELETON"
+declare -r DB_USER="SKELETON"
+# For MySQL 5.5-
+declare -r DB_PASSWORD="xxxx"
+# For MySQL 5.6+ (you will be asked to type in the above password for the first time)
+declare -r DB_LOGIN_PATH=${DB_NAME}
+
+# --- EOF

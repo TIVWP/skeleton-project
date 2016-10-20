@@ -1,0 +1,52 @@
+{
+  "name": "tivwp/skeleton-project",
+  "description": "Skeleton project for WordPress applications",
+  "license": "GPL-3.0",
+  "require": {
+    "composer/installers": "~1.0",
+    "composer-plugin-api": "^1.0",
+    "johnpbloch/wordpress": "^4.6.1@STABLE",
+    "wpackagist-plugin/tivwp-email": "^1.",
+    "wpackagist-plugin/user-switching": "^1.",
+    "wpackagist-plugin/woocommerce": "^2.",
+    "tivwp/dbdump": "^1."
+  },
+  "minimum-stability": "stable",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "vcs",
+      "url": "https://bitbucket.org/tivwp/dbdump.git"
+    }
+  ],
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "github-protocols": [
+      "https"
+    ],
+    "notify-on-install": false
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+      "{$name}/": [
+        "type:modulework-module"
+      ],
+      "public/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "require-unused":{
+      "wpackagist-plugin/wordpress-seo": "^3.",
+      "end-of-list": "nothing"
+    }
+  }
+}

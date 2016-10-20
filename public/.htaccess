@@ -1,0 +1,45 @@
+# BEGIN TIVCommon
+
+Options -Includes -Indexes
+ErrorDocument 403 'Not found!'
+ErrorDocument 404 'Not found'
+ErrorDocument 410 'Not found..'
+ErrorDocument 500 'Error'
+
+#php_value memory_limit 512M
+#php_value max_execution_time 60
+#php_value max_input_time 60
+#php_value post_max_size 75M
+#php_value max_input_vars 2500
+#php_value file_uploads 1
+#php_value max_file_uploads 25
+#php_value upload_max_filesize 3M
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+
+# - Allow INDEX and AJAX to anyone
+RewriteRule ^index\.php - [L]
+RewriteRule wp-admin/admin-ajax\.php - [L]
+
+# - Do not allow author query to avoid real names exposure
+RewriteCond %{QUERY_STRING} ^author=\d+
+RewriteRule . - [R=404,L]
+# - Hide some files
+RewriteCond %{REQUEST_URI} (\.svn|\.ini|\.sql|\.sh|\.git) [NC]
+RewriteRule . - [R=404,L]
+</IfModule>
+# END TIVCommon
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

@@ -10,21 +10,3 @@
 *.crt binary
 *.key binary
 *.ico binary
-
-# Ignore these files when installed by Composer in "dist" mode.
-.bowerrc export-ignore
-.git export-ignore
-.gitignore export-ignore
-.travis.yml export-ignore
-.tx export-ignore
-Gruntfile.js export-ignore
-bower.json export-ignore
-composer.json export-ignore
-composer.lock export-ignore
-grunt export-ignore
-node_modules export-ignore
-npm-debug.log export-ignore
-package.json export-ignore
-phpunit.xml export-ignore
-tests export-ignore
-unit-tests export-ignore

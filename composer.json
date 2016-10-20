@@ -8,7 +8,6 @@
     "johnpbloch/wordpress": "^4.6.1@STABLE",
     "wpackagist-plugin/tivwp-email": "^1.",
     "wpackagist-plugin/user-switching": "^1.",
-    "wpackagist-plugin/woocommerce": "^2.",
     "tivwp/dbdump": "^1."
   },
   "minimum-stability": "stable",
@@ -31,6 +30,16 @@
     ],
     "notify-on-install": false
   },
+  "scripts": {
+    "post-create-project-cmd": [
+      "tivwp_composer::post_create_project"
+    ]
+  },
+  "autoload": {
+    "classmap": [
+      "internal"
+    ]
+  },
   "extra": {
     "wordpress-install-dir": "public/wp",
     "installer-paths": {
@@ -45,6 +54,7 @@
       ]
     },
     "require-unused":{
+      "wpackagist-plugin/woocommerce": "^2.",
       "wpackagist-plugin/wordpress-seo": "^3.",
       "end-of-list": "nothing"
     }

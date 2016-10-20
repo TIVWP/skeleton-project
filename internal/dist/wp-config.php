@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The base configurations of the WordPress.
  *
@@ -27,13 +26,13 @@ if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'SKELETON' );
+define( 'DB_NAME', '{{DB_NAME}}' );
 
 /** MySQL database username */
-define( 'DB_USER', 'SKELETON' );
+define( 'DB_USER', '{{DB_USER}}' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'xxxx' );
+define( 'DB_PASSWORD', '{{DB_PASSWORD}}' );
 
 /** MySQL hostname */
 define( 'DB_HOST', '127.0.0.1' );
@@ -70,7 +69,7 @@ define( 'NONCE_SALT', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' );
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'SKELETON_';
+$table_prefix = 'wp_';
 
 #define( 'FORCE_SSL_LOGIN', 1 );
 #define( 'FORCE_SSL_ADMIN', 1 );
@@ -82,6 +81,7 @@ $table_prefix = 'SKELETON_';
 #define( 'WP_MEMORY_LIMIT', '256M' );
 
 if ( file_exists( dirname( __FILE__ ) . '/tivwp-local-config.inc.php' ) ) {
+	/* @noinspection PhpIncludeInspection */
 	require_once dirname( __FILE__ ) . '/tivwp-local-config.inc.php';
 }
 

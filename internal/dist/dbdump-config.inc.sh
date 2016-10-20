@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -r SITE_NAME="SKELETON.com"
+declare -r SITE_NAME="{{SITE_NAME}}"
 
 #
 # For remote operations (ssh, copy dumps from-to server)
@@ -18,10 +18,10 @@ declare -r WP_CONTENT_DIR="${DOCUMENT_ROOT}/wp-content"
 declare -r DIR_DUMP="${SITE_ROOT}/dbdump-data/sql"
 
 # These are the MySQL connection settings, same as in the WordPress config file
-declare -r DB_NAME="SKELETON"
-declare -r DB_USER="SKELETON"
+declare -r DB_NAME="{{DB_NAME}}"
+declare -r DB_USER="{{DB_USER}}"
 # For MySQL 5.5-
-declare -r DB_PASSWORD="xxxx"
+declare -r DB_PASSWORD="{{DB_PASSWORD}}"
 # For MySQL 5.6+ (you will be asked to type in the above password for the first time)
 declare -r DB_LOGIN_PATH=${DB_NAME}
 

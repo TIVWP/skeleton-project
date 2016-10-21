@@ -31,7 +31,7 @@ class tivwp_composer {
 
 		$db_name     = $io->ask( 'DB_NAME [' . $default_db . '] : ', $default_db );
 		$db_user     = $io->ask( 'DB_USER [' . $default_db . '] : ', $default_db );
-		$db_password = $io->ask( 'DB_PASSWORD=', 'tivwp_password' );
+		$db_password = $io->ask( 'DB_PASSWORD :', 'tivwp_password' );
 		$site_name   = $io->ask( 'Domain name [' . $default_site_name . '] : ', $default_site_name );
 		$replaces    = array(
 			'{{DB_NAME}}'      => $db_name,

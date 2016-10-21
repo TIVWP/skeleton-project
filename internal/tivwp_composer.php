@@ -22,19 +22,20 @@ class tivwp_composer {
 		$db_name     = $io->ask( 'DB_NAME=', 'tivwp_db' );
 		$db_user     = $io->ask( 'DB_USER=', 'tivwp_user' );
 		$db_password = $io->ask( 'DB_PASSWORD=', 'tivwp_password' );
-		$site_name = $io->ask( 'SITE_NAME [www.example.com] :', 'www.example.com' );
+		$site_name   = $io->ask( 'SITE_NAME [www.example.com] :', 'www.example.com' );
 
 		$replaces = array(
 			'{{DB_NAME}}'     => $db_name,
 			'{{DB_USER}}'     => $db_user,
 			'{{DB_PASSWORD}}' => $db_password,
-			'{{SITE_NAME}}' => $site_name,
+			'{{SITE_NAME}}'   => $site_name,
 		);
 
 		$replace_in_files = array(
 			'internal/dist/dbcreate.sql'         => 'internal/dbcreate.sql',
 			'internal/dist/wp-config.php'        => 'public/wp-config.php',
 			'internal/dist/dbdump-config.inc.sh' => 'dbdump-config.inc.sh',
+			'internal/dist/httpd.conf'           => 'apache/httpd.conf',
 		);
 
 		$io->write( 'Processing files:' );

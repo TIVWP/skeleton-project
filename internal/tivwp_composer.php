@@ -23,12 +23,14 @@ class tivwp_composer {
 
 		$default_site_name = str_replace( 'www.', '', basename( $project_root ) );
 
+		list( $default_db ) = explode( '.', $default_site_name );
+
 		$io = $event->getIO();
 
 		$io->write( 'Please enter the configuration values:' );
 
-		$db_name     = $io->ask( 'DB_NAME=', 'tivwp_db' );
-		$db_user     = $io->ask( 'DB_USER=', 'tivwp_user' );
+		$db_name     = $io->ask( 'DB_NAME [' . $default_db . '] : ', $default_db );
+		$db_user     = $io->ask( 'DB_USER [' . $default_db . '] : ', $default_db );
 		$db_password = $io->ask( 'DB_PASSWORD=', 'tivwp_password' );
 		$site_name   = $io->ask( 'Domain name [' . $default_site_name . '] : ', $default_site_name );
 		$replaces    = array(

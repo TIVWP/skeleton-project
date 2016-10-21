@@ -1,7 +1,5 @@
 #!/bin/bash
 
-declare -r SITE_NAME="{{SITE_NAME}}"
-
 #
 # For remote operations (ssh, copy dumps from-to server)
 #
@@ -11,11 +9,9 @@ declare -r REMOTE_ADDR="x.x.x.x"
 declare -r REMOTE_USER="www-data"
 
 # Must be the same on all machines
-declare -r WWW_ROOT="/var/www/u"
-declare -r SITE_ROOT="${WWW_ROOT}/${SITE_NAME}"
-declare -r DOCUMENT_ROOT="${SITE_ROOT}/public"
+declare -r DOCUMENT_ROOT="{{PROJECT_ROOT}}/public"
 declare -r WP_CONTENT_DIR="${DOCUMENT_ROOT}/wp-content"
-declare -r DIR_DUMP="${SITE_ROOT}/dbdump-data/sql"
+declare -r DIR_DUMP="{{PROJECT_ROOT}}/dbdump-data/sql"
 
 # These are the MySQL connection settings, same as in the WordPress config file
 declare -r DB_NAME="{{DB_NAME}}"

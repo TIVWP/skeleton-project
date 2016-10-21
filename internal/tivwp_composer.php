@@ -15,6 +15,14 @@ class tivwp_composer {
 	 * @param Event $event
 	 */
 	public static function post_create_project( Event $event ) {
+
+		$project_root = str_replace( '\\', '/', dirname( __DIR__ ) );
+		if ( ':' === substr( $project_root, 1, 1 ) ) {
+			$project_root = substr( $project_root, 2 );
+		}
+
+		$default_site_name = str_replace( 'www.', '', basename( $project_root ) );
+
 		$io = $event->getIO();
 
 		$io->write( 'Please enter the configuration values:' );
@@ -22,14 +30,24 @@ class tivwp_composer {
 		$db_name     = $io->ask( 'DB_NAME=', 'tivwp_db' );
 		$db_user     = $io->ask( 'DB_USER=', 'tivwp_user' );
 		$db_password = $io->ask( 'DB_PASSWORD=', 'tivwp_password' );
-		$site_name   = $io->ask( 'SITE_NAME [www.example.com] :', 'www.example.com' );
-
-		$replaces = array(
-			'{{DB_NAME}}'     => $db_name,
-			'{{DB_USER}}'     => $db_user,
-			'{{DB_PASSWORD}}' => $db_password,
-			'{{SITE_NAME}}'   => $site_name,
+		$site_name   = $io->ask( 'Domain name [' . $default_site_name . '] : ', $default_site_name );
+		$replaces    = array(
+			'{{DB_NAME}}'      => $db_name,
+			'{{DB_USER}}'      => $db_user,
+			'{{DB_PASSWORD}}'  => $db_password,
+			'{{SITE_NAME}}'    => $site_name,
+			'{{PROJECT_ROOT}}' => $project_root,
 		);
+
+		$io->write( print_r( $replaces, true ) );
+
+		if ( ! $io->askConfirmation( 'OK [Y/n]?' ) ) {
+			$io->writeError( 'Aborted.' );
+			$io->write( 'To repeat the configuration, please run:' );
+			$io->write( 'composer run-script post-create-project-cmd' );
+
+			return;
+		}
 
 		$replace_in_files = array(
 			'internal/dist/dbcreate.sql'         => 'internal/dbcreate.sql',

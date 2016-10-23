@@ -36,7 +36,7 @@ Go to the project folder:
 
 Run `mysql` to create the database and the user:
 
-    mysql -u greg -p < internal/dbcreate.sql
+    mysql -u root -p < internal/dbcreate.sql
     Enter password: **********
 
 Edit the `public/wp-config.php` file and replace the "Authentication Unique Keys and Salts" section with the content of https://api.wordpress.org/secret-key/1.1/salt/.
@@ -82,7 +82,47 @@ and change the `Site Address (URL)` so that it does not end with `wp`:
 
 Keep the above part, `WordPress Address (URL)` as-is.
 
-The site is ready. Make a GitHub repo for it, commit and push.
+### Clean-up
+
+Edit the `composer.json` file:
+
+- Change these lines:
+
+```
+"name": "tivwp/skeleton-project",
+"description": "Skeleton project for WordPress applications",
+```
+
+- Remove these lines:
+
+```
+"scripts": {
+    "post-create-project-cmd": [
+      "tivwp_composer::post_create_project"
+    ]
+},
+"autoload": {
+    "classmap": [
+      "internal"
+    ]
+},
+```
+
+- Note these lines:
+
+```
+"require-unused":{
+    "wpackagist-plugin/woocommerce": "^2.",
+    "wpackagist-plugin/wordpress-seo": "^3.",
+    "end-of-list": "nothing"
+}
+```
+
+You can use this space to temporarily add-remove components. For instance, if you move the `woocommerce` line to the `require:` section and then run `composer update`, WooCommerce plugin will be installed in the `plugins` folder.
+
+### That's All
+
+The site is ready. Make a Git repo for it, commit and push.
 
 ## Author
 

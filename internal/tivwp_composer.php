@@ -9,6 +9,7 @@ use Composer\Script\Event;
 
 /**
  * Class tivwp_composer
+ * @todo composer.json should change. Different project name; do not need to run script.
  */
 class tivwp_composer {
 	/**
@@ -37,7 +38,7 @@ class tivwp_composer {
 			'{{DB_NAME}}'      => $db_name,
 			'{{DB_USER}}'      => $db_user,
 			'{{DB_PASSWORD}}'  => $db_password,
-			'{{SITE_NAME}}'    => $site_name,
+			'{{SITE_NAME}}'    => $site_name, // TODO remove checking for SITE_NAME in dbdbump. And do we need this replacement?
 			'{{PROJECT_ROOT}}' => $project_root,
 		);
 

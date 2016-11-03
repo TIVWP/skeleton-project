@@ -11,7 +11,7 @@ Composer will install the project and then will run the configuration script:
     > tivwp_composer::post_create_project
     Please enter the configuration values:
     DB_NAME [my-site] :
-    DB_USER [my-site] :
+    DB_USER [my-site] (max. 16 chars) :
     DB_PASSWORD :mysecretpassword
     Domain name [my-site.com] :
     Array

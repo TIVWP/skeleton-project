@@ -26,19 +26,22 @@ class tivwp_composer {
 
 		list( $default_db ) = explode( '.', $default_site_name );
 
+		$default_user = substr( $default_db, 0, 16 );
+
 		$io = $event->getIO();
 
 		$io->write( 'Please enter the configuration values:' );
 
 		$db_name     = $io->ask( 'DB_NAME [' . $default_db . '] : ', $default_db );
-		$db_user     = $io->ask( 'DB_USER [' . $default_db . '] : ', $default_db );
+		$db_user     = $io->ask( 'DB_USER [' . $default_user . '] (max. 16 chars) : ', $default_user );
 		$db_password = $io->ask( 'DB_PASSWORD :', 'tivwp_password' );
 		$site_name   = $io->ask( 'Domain name [' . $default_site_name . '] : ', $default_site_name );
 		$replaces    = array(
 			'{{DB_NAME}}'      => $db_name,
 			'{{DB_USER}}'      => $db_user,
 			'{{DB_PASSWORD}}'  => $db_password,
-			'{{SITE_NAME}}'    => $site_name, // TODO remove checking for SITE_NAME in dbdbump. And do we need this replacement?
+			'{{SITE_NAME}}'    => $site_name,
+			// TODO remove checking for SITE_NAME in dbdbump. And do we need this replacement?
 			'{{PROJECT_ROOT}}' => $project_root,
 		);
 

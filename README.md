@@ -112,6 +112,8 @@ Edit the `composer.json` file:
 },
 ```
 
+- Remove the `internal` folder.
+- Remove or modify `README.md` and `LICENSE` files in the project root folder.
 - Note these lines:
 
 ```

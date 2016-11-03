@@ -82,6 +82,10 @@ and change the `Site Address (URL)` so that it does not end with `wp`:
 
 Keep the above part, `WordPress Address (URL)` as-is.
 
+Alternatively, if you have `WP-CLI` installed, you can use it:
+
+    wp option update home 'https://www.my-site.com'
+
 ### Clean-up
 
 Edit the `composer.json` file:

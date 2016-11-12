@@ -58,7 +58,6 @@ class tivwp_composer {
 		$replace_in_files = array(
 			'internal/dist/dbcreate.sql'         => 'internal/dbcreate.sql',
 			'internal/dist/wp-config.php'        => 'public/wp-config.php',
-			'internal/dist/dbdump-config.inc.sh' => 'dbdump-config.inc.sh',
 			'internal/dist/httpd.conf'           => 'apache/httpd.conf',
 		);
 

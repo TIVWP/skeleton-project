@@ -1,7 +1,6 @@
 # Uncomment this!
 #/public/tivwp-local-config.inc.php
 /composer.lock
-/dbdump/
 /public/wp-content/plugins/tivwp-email/
 /public/wp-content/plugins/user-switching/
 /public/wp-content/plugins/woocommerce/

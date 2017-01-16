@@ -4,7 +4,7 @@
 # Usage Example
 
     cd /var/www
-    composer create-project tivwp/skeleton-project www.my-site.com
+    composer create-project tivwp/skeleton-project my-site.com
 
 Composer will install the project and then will run the configuration script:
 
@@ -20,19 +20,18 @@ Composer will install the project and then will run the configuration script:
         [{{DB_USER}}] => my-site
         [{{DB_PASSWORD}}] => mysecretpassword
         [{{SITE_NAME}}] => my-site.com
-        [{{PROJECT_ROOT}}] => /var/www/www.my-site.com
+        [{{PROJECT_ROOT}}] => /var/www/my-site.com
     )
     
     OK [Y/n]?
     Processing files:
     internal/dist/dbcreate.sql => internal/dbcreate.sql
     internal/dist/wp-config.php => public/wp-config.php
-    internal/dist/dbdump-config.inc.sh => dbdump-config.inc.sh
     internal/dist/httpd.conf => apache/httpd.conf
 
 Go to the project folder:
 
-    cd /var/www/www.my-site.com
+    cd /var/www/my-site.com
 
 Run `mysql` to create the database and the user:
 
@@ -47,15 +46,15 @@ Edit the `.gitignore` file in the project root and uncomment the line:
 
 If you already have the SSL certificate files, put them to the SSL folder:
 
-    /var/www/www.my-site.com/ssl/
+    /var/www/my-site.com/ssl/
 
 instead of the self-signed certificates found there. Then, edit the Apache configuration file:
  
-    /var/www/www.my-site.com/apache/httpd.conf
+    /var/www/my-site.com/apache/httpd.conf
 
 Edit the Apache server configuration (eq. on Ubuntu, create a new file in the `sites-available` folder) and write the following line there:
  
-    Include /var/www/www.my-site.com/apache/httpd.conf
+    Include /var/www/my-site.com/apache/httpd.conf
     
 Reload Apache. On Ubuntu do this:
 
@@ -64,27 +63,27 @@ Reload Apache. On Ubuntu do this:
 
 If on development server, edit the `/etc/hosts` file and put the following line there:
 
-    127.0.0.1 www.my-site.com
+    127.0.0.1 my-site.com www.my-site.com
 
 Open the site in browser to let WordPress setup the database tables:
 
-https://www.my-site.com/wp/wp-admin/install.php
+https://my-site.com/wp/wp-admin/install.php
 
 Note that if you did not install the real SSL certificate, your browser will issue a warning.
 
 Complete the WordPress installation, login to the admin and then go to the General Settings:
 
-https://www.my-site.com/wp/wp-admin/options-general.php
+https://my-site.com/wp/wp-admin/options-general.php
 
 and change the `Site Address (URL)` so that it does not end with `wp`:
 
-    https://www.my-site.com
+    https://my-site.com
 
 Keep the above part, `WordPress Address (URL)` as-is.
 
 Alternatively, if you have `WP-CLI` installed, you can use it:
 
-    wp option update home 'https://www.my-site.com'
+    wp option update home 'https://my-site.com'
 
 ### Clean-up
 

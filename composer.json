@@ -5,7 +5,7 @@
   "require": {
     "composer/installers": "~1.0",
     "composer-plugin-api": "^1.0",
-    "johnpbloch/wordpress": "^4.6.1@STABLE",
+    "johnpbloch/wordpress": "^4.9.8@STABLE",
     "wpackagist-plugin/tivwp-email": "^1.",
     "wpackagist-plugin/user-switching": "^1."
   },
@@ -17,6 +17,7 @@
     }
   ],
   "config": {
+    "secure-http": true,
     "preferred-install": {
       "*": "dist"
     },
@@ -46,8 +47,15 @@
       ]
     },
     "require-unused":{
-      "wpackagist-plugin/woocommerce": "^2.",
-      "wpackagist-plugin/wordpress-seo": "^3.",
+      "wpackagist-plugin/woocommerce": "^3.",
+      "wpackagist-plugin/wordpress-seo": "^8.",
+      "wpackagist-plugin/query-monitor": "^3.",
+      "wpackagist-plugin/debug-bar": "^0.",
+      "wpackagist-plugin/tweak-option": "^1.",
+      "wpackagist-plugin/woocommerce-gateway-stripe": "^4.",
+      "wpackagist-plugin/dummy-gateway-for-woocommerce": "^1.",
+      "wpackagist-theme/storefront": "^2.",
+      "wpackagist-plugin/wp-crontrol": "^1.",
       "end-of-list": "nothing"
     }
   }

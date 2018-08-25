@@ -1,5 +1,5 @@
 # skeleton-project
-►►► PLEASE DO NOT TRY USING IT YET. WAIT FOR THIS LINE TO DISAPPEAR ! ◄◄◄
+►►► FOR TIV.NET PROJECTS ONLY ◄◄◄
 
 # Usage Example
 

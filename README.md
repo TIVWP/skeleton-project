@@ -44,23 +44,6 @@ Edit the `.gitignore` file in the project root and uncomment the line:
 
     /public/tivwp-local-config.inc.php
 
-If you already have the SSL certificate files, put them to the SSL folder:
-
-    /var/www/my-site.com/ssl/
-
-instead of the self-signed certificates found there. Then, edit the Apache configuration file:
- 
-    /var/www/my-site.com/apache/httpd.conf
-
-Edit the Apache server configuration (eq. on Ubuntu, create a new file in the `sites-available` folder) and write the following line there:
- 
-    Include /var/www/my-site.com/apache/httpd.conf
-    
-Reload Apache. On Ubuntu do this:
-
-    a2ensite www.my-site.com
-    service apache2 reload
-
 If on development server, edit the `/etc/hosts` file and put the following line there:
 
     127.0.0.1 my-site.com www.my-site.com
@@ -112,18 +95,7 @@ Edit the `composer.json` file:
 ```
 
 - Remove the `internal` folder.
-- Remove or modify `README.md` and `LICENSE` files in the project root folder.
-- Note these lines:
-
-```
-"require-unused":{
-    "wpackagist-plugin/woocommerce": "^2.",
-    "wpackagist-plugin/wordpress-seo": "^3.",
-    "end-of-list": "nothing"
-}
-```
-
-You can use this space to temporarily add-remove components. For instance, if you move the `woocommerce` line to the `require:` section and then run `composer update`, WooCommerce plugin will be installed in the `plugins` folder.
+- Remove or modify `README.md` file in the project root folder.
 
 ### That's All
 
@@ -132,4 +104,4 @@ The site is ready. Make a Git repo for it, commit and push.
 ## Author
 
 Gregory Karpinsky
-[TIV.NET INC.](http://www.tiv.net/) / [WPGlobus](http://www.wpglobus.com/)
+[TIV.NET INC.](https://www.tiv.net/) / [WPGlobus](https://wpglobus.com/)

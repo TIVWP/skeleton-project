@@ -1,5 +1,13 @@
 # BEGIN TIVCommon
 
+<If "%{REQUEST_URI} =~ /wp/">
+    ExpiresActive Off
+</If>
+<Else>
+    ExpiresActive on
+    ExpiresDefault "access plus 1 hour"
+</Else>
+
 Options -Includes -Indexes
 ErrorDocument 403 'Not found!'
 ErrorDocument 404 'Not found'

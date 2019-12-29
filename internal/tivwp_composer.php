@@ -41,8 +41,6 @@ class tivwp_composer {
 			'{{DB_USER}}'      => $db_user,
 			'{{DB_PASSWORD}}'  => $db_password,
 			'{{SITE_NAME}}'    => $site_name,
-			// TODO remove checking for SITE_NAME in dbdbump. And do we need this replacement?
-			'{{PROJECT_ROOT}}' => $project_root,
 		);
 
 		$io->write( print_r( $replaces, true ) );
@@ -58,7 +56,6 @@ class tivwp_composer {
 		$replace_in_files = array(
 			'internal/dist/dbcreate.sql'         => 'internal/dbcreate.sql',
 			'internal/dist/wp-config.php'        => 'public/wp-config.php',
-			'internal/dist/httpd.conf'           => 'apache/httpd.conf',
 		);
 
 		$io->write( 'Processing files:' );

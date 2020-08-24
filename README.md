@@ -1,5 +1,5 @@
 # skeleton-project
-►►► FOR TIV.NET PROJECTS ONLY ◄◄◄
+> FOR TIV.NET PROJECTS ONLY
 
 # Usage Example
 
@@ -48,7 +48,7 @@ If on development server, edit the `/etc/hosts` file and put the following line 
 
     127.0.0.1 my-site.com www.my-site.com
 
-Open the site in browser to let WordPress setup the database tables:
+Open the site in a browser to let WordPress set up the database tables:
 
 https://my-site.com/wp/wp-admin/install.php
 
@@ -104,4 +104,9 @@ The site is ready. Make a Git repo for it, commit and push.
 ## Author
 
 Gregory Karpinsky
-[TIV.NET INC.](https://www.tiv.net/) / [WPGlobus](https://wpglobus.com/)
+[TIV.NET INC.](https://www.tiv.net/)
+ 
+- [WPGlobus](https://wpglobus.com/) - Multilingual WordPress and WooCommerce.
+- [Paywall for WooCommerce](https://woocommerce.com/products/paywall-for-woocommerce/?aff=28186&cid=2822492) - sell pay-per-view videos and other restricted content.
+ - [WooCommerce Multi-currency](https://woocommerce.com/products/multi-currency/?aff=28186&cid=2822492) - let the customer pay in the currency of their choice.
+ 

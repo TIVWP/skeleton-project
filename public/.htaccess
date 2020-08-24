@@ -4,7 +4,8 @@
     ExpiresActive Off
 </If>
 <Else>
-    ExpiresActive on
+    ExpiresActive Off
+#    ExpiresActive on
     ExpiresDefault "access plus 1 hour"
 </Else>
 
@@ -14,14 +15,14 @@ ErrorDocument 404 'Not found'
 ErrorDocument 410 'Not found..'
 ErrorDocument 500 'Error'
 
-#php_value memory_limit 512M
+php_value memory_limit 512M
 #php_value max_execution_time 60
-#php_value max_input_time 60
-#php_value post_max_size 75M
+php_value max_input_time 300
+php_value post_max_size 500M
 #php_value max_input_vars 2500
 #php_value file_uploads 1
 #php_value max_file_uploads 25
-#php_value upload_max_filesize 3M
+php_value upload_max_filesize 1G
 
 <IfModule mod_rewrite.c>
 RewriteEngine on
@@ -41,6 +42,9 @@ RewriteRule . - [R=404,L]
 # END TIVCommon
 
 # BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /

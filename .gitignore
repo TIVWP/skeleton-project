@@ -1,7 +1,6 @@
 # Uncomment this!
 #/public/tivwp-local-config.inc.php
 /composer.lock
-/public/wp-content/plugins/
 /public/wp-content/upgrade/
 /public/wp-content/uploads/GeoIP.dat
 /public/wp-content/uploads/maxmegamenu/
@@ -12,3 +11,5 @@
 /public/wp/
 /vendor/
 /public/.well-known/
+/public/wp-content/plugins/*
+!/public/wp-content/plugins/_tivset-cache-on/

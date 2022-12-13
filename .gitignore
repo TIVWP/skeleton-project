@@ -1,0 +1,21 @@
+# Uncomment this!
+#/public/tivwp-local-config.inc.php
+
+/composer.lock
+/debug.log
+/public/.well-known/
+/public/wp-content/db.php
+/public/wp-content/upgrade/
+/public/wp-content/uploads/cache/
+/public/wp-content/uploads/GeoIP.dat
+/public/wp-content/uploads/maxmegamenu/
+/public/wp-content/uploads/wc-logs/
+/public/wp-content/uploads/woocommerce_uploads/
+/public/wp-content/uploads/wp-migrate-db/
+/public/wp-content/uploads/wpcf7_captcha/
+/public/wp/
+/vendor/
+
+/public/wp-content/plugins/*
+
+/public/wp-content/themes/*

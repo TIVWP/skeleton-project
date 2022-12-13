@@ -1,0 +1,79 @@
+{
+  "name": "tivwp/skeleton-project",
+  "description": "Skeleton project for WordPress applications",
+  "license": "GPL-3.0",
+  "require": {
+    "wpackagist-plugin/dummy-gateway-for-woocommerce": "@stable",
+    "wpackagist-plugin/tivwp-email": "@stable",
+    "wpackagist-plugin/woocommerce": "@stable",
+    "wpackagist-plugin/wordpress-seo": "@stable",
+    "wpackagist-plugin/wp-maintenance-mode": "@stable",
+    "wpackagist-plugin/wpforms-lite": "@stable",
+    "wpackagist-theme/storefront": "@stable",
+    "composer/installers": "@stable",
+    "composer-plugin-api": "@stable",
+    "johnpbloch/wordpress": "@stable"
+  },
+  "require-dev": {
+    "wpackagist-plugin/codepress-admin-columns": "@stable",
+    "wpackagist-plugin/debug-bar": "@stable",
+    "wpackagist-plugin/loco-translate": "@stable",
+    "wpackagist-plugin/log-http-requests": "@stable",
+    "wpackagist-plugin/post-meta-inspector": "@stable",
+    "wpackagist-plugin/query-monitor": "@stable",
+    "wpackagist-plugin/transients-manager": "@stable",
+    "wpackagist-plugin/tweak-option": "@stable",
+    "wpackagist-plugin/user-meta-display": "@stable",
+    "wpackagist-plugin/user-switching": "@stable",
+    "wpackagist-plugin/wp-crontrol": "@stable",
+    "wpackagist-plugin/wp-mail-logging": "@stable"
+  },
+  "minimum-stability": "stable",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "config": {
+    "secure-http": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "github-protocols": [
+      "https"
+    ],
+    "notify-on-install": false,
+    "allow-plugins": {
+      "johnpbloch/wordpress-core-installer": true,
+      "composer/installers": true
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "tivwp_composer::post_create_project"
+    ]
+  },
+  "autoload": {
+    "classmap": [
+      "internal"
+    ]
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+      "public/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "require-unused":{
+      "wpackagist-plugin/gist-github-shortcode": "@stable",
+      "wpackagist-plugin/wp-super-cache": "@stable",
+      "wpackagist-plugin/wpglobus": "@stable",
+      "end-of-list": "nothing"
+    }
+  }
+}

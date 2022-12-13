@@ -1,0 +1,37 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "todo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://todo"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://todo",
+  "main": "index.js",
+  "config": {
+    "plugins": {
+      "base": "woocommerce",
+      "dev": "debug-bar query-monitor tivwp-email",
+      "prod": "wpglobus wordpress-seo"
+    }
+  },
+  "scripts": {
+    "plugins:none": "wp plugin deactivate --all --quiet",
+    "plugins:list": "wp plugin list",
+    "plugins:active": "wp plugin list --status=active",
+    "plugins:active:list": "wp plugin list --field=name --status=active --format=csv",
+    "plugins:inactive": "wp plugin list | grep inactive",
+    "set:prod": "npm run plugins:none && ndx wp.cmd plugin activate %npm_package_config_plugins_base% %npm_package_config_plugins_prod%",
+    "set:dev": "npm run plugins:none && ndx wp.cmd plugin activate %npm_package_config_plugins_base% %npm_package_config_plugins_prod% %npm_package_config_plugins_dev%",
+    "cpz:no-dev": "composer update --no-dev",
+    "cpz": "composer update",
+    "db:dump": "wpdb dump",
+    "timezone_string": "ndx wp.cmd option get %npm_lifecycle_event%",
+    "timezone_string UTC": "ndx wp.cmd option update %npm_lifecycle_event%",
+    "timezone_string America/Toronto": "ndx wp.cmd option update %npm_lifecycle_event%",
+    "timezone_string Africa/Cairo": "ndx wp.cmd option update %npm_lifecycle_event%"
+  }
+}
